@@ -19,15 +19,25 @@ namespace DataUpdateMethods
         }
     }
 
+    [RPlotExporter]
     public class UpDateData
     {
+        //[Benchmark]
+        //public async Task EfCoreUpdateRangeAsync()
+        //{
+        //    var context = new WideWorldImportersContext();
+        //    var people = await context.People.ToListAsync();
+        //    people.ForEach(i => i.LogonName = "Test");
+        //    context.People.UpdateRange(people);
+        //    await context.SaveChangesAsync();
+        //}
+
         [Benchmark]
-        public async Task EfCoreUpdateUpdateRangeAsync()
+        public async Task EfCoreExecuteUpdateAsync()
         {
             var context = new WideWorldImportersContext();
-            var invoices = await context.Invoices.ToListAsync();
-            invoices.ForEach(i => i.DeliveryInstructions = "Test");
-            context.Invoices.UpdateRange(invoices);
+            await context.People.ExecuteUpdateAsync(p => p.SetProperty(pr => pr.LogonName, "Test"));
+            await context.SaveChangesAsync();
         }
     }
 }
