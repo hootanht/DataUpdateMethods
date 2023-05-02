@@ -490,16 +490,16 @@ public partial class WideWorldImportersContext : DbContext
         {
             entity.HasKey(e => e.PersonId).HasName("PK_Application_People");
 
-            entity.ToTable(tb => tb.IsTemporal(ttb =>
-                    {
-                        ttb.UseHistoryTable("People_Archive", "Application");
-                        ttb
-                            .HasPeriodStart("ValidFrom")
-                            .HasColumnName("ValidFrom");
-                        ttb
-                            .HasPeriodEnd("ValidTo")
-                            .HasColumnName("ValidTo");
-                    }));
+            //entity.ToTable(tb => tb.IsTemporal(ttb =>
+            //        {
+            //            ttb.UseHistoryTable("People_Archive", "Application");
+            //            ttb
+            //                .HasPeriodStart("ValidFrom")
+            //                .HasColumnName("ValidFrom");
+            //            ttb
+            //                .HasPeriodEnd("ValidTo")
+            //                .HasColumnName("ValidTo");
+            //        }));
 
             entity.Property(e => e.PersonId).HasDefaultValueSql("(NEXT VALUE FOR [Sequences].[PersonID])");
             entity.Property(e => e.OtherLanguages).HasComputedColumnSql("(json_query([CustomFields],N'$.OtherLanguages'))", false);
