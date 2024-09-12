@@ -86,3 +86,7 @@ This project uses GitHub Actions for Continuous Integration (CI). The CI workflo
 3. **Restore Dependencies**: The workflow restores the project dependencies.
 4. **Build**: The workflow builds the project.
 5. **Run Tests**: The workflow runs the tests to ensure the code is working as expected.
+
+## .NET Version
+
+This project now uses .NET 8.0.
