@@ -15,7 +15,7 @@ namespace DataUpdateMethods
         public static void Main(string[] args)
         {
             var host = CreateHostBuilder(args).Build();
-            var summary = host.Services.GetRequiredService<BenchmarkRunner>().Run<UpDateData>();
+            BenchmarkRunner.Run<UpDateData>();
             Console.ReadKey();
         }
 
