@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataUpdateMethods.Models;
 
+/// <summary>
+/// Represents the temperature recorded in a cold room in the warehouse schema.
+/// </summary>
 [Table("ColdRoomTemperatures", Schema = "Warehouse")]
 [Index("ColdRoomSensorNumber", Name = "IX_Warehouse_ColdRoomTemperatures_ColdRoomSensorNumber")]
 public partial class ColdRoomTemperature

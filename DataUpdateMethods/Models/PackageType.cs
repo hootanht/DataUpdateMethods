@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataUpdateMethods.Models;
 
+/// <summary>
+/// Represents a type of package in the warehouse schema.
+/// </summary>
 [Table("PackageTypes", Schema = "Warehouse")]
 [Index("PackageTypeName", Name = "UQ_Warehouse_PackageTypes_PackageTypeName", IsUnique = true)]
 public partial class PackageType

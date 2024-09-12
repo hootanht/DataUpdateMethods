@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataUpdateMethods.Models;
 
+/// <summary>
+/// Represents a city in the application schema.
+/// </summary>
 [Table("Cities", Schema = "Application")]
 [Index("StateProvinceId", Name = "FK_Application_Cities_StateProvinceID")]
 public partial class City

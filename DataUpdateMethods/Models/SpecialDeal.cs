@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataUpdateMethods.Models;
 
+/// <summary>
+/// Represents a special deal in the sales schema.
+/// </summary>
 [Table("SpecialDeals", Schema = "Sales")]
 [Index("BuyingGroupId", Name = "FK_Sales_SpecialDeals_BuyingGroupID")]
 [Index("CustomerCategoryId", Name = "FK_Sales_SpecialDeals_CustomerCategoryID")]

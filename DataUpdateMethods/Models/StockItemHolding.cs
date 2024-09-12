@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataUpdateMethods.Models;
 
+/// <summary>
+/// Represents the holding information of a stock item in the warehouse schema.
+/// </summary>
 [Table("StockItemHoldings", Schema = "Warehouse")]
 public partial class StockItemHolding
 {

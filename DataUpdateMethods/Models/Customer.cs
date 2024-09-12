@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataUpdateMethods.Models;
 
+/// <summary>
+/// Represents a customer in the sales schema.
+/// </summary>
 [Table("Customers", Schema = "Sales")]
 [Index("AlternateContactPersonId", Name = "FK_Sales_Customers_AlternateContactPersonID")]
 [Index("BuyingGroupId", Name = "FK_Sales_Customers_BuyingGroupID")]

@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataUpdateMethods.Models;
 
+/// <summary>
+/// Represents a line item in an order in the sales schema.
+/// </summary>
 [Table("OrderLines", Schema = "Sales")]
 [Index("OrderId", Name = "FK_Sales_OrderLines_OrderID")]
 [Index("PackageTypeId", Name = "FK_Sales_OrderLines_PackageTypeID")]

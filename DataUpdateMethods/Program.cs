@@ -1,51 +1,62 @@
-﻿using System;
+using System;
 using System.Security.Cryptography;
-
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
-
 using DataUpdateMethods.Models;
 using EFCore.BulkExtensions;
 using Microsoft.EntityFrameworkCore;
-
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 namespace DataUpdateMethods
 {
     public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            var summary = BenchmarkRunner.Run<UpDateData>();
+            var host = CreateHostBuilder(args).Build();
+            var summary = host.Services.GetRequiredService<BenchmarkRunner>().Run<UpDateData>();
             Console.ReadKey();
         }
+
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureServices((_, services) =>
+                    services.AddDbContext<WideWorldImportersContext>()
+                            .AddTransient<UpDateData>()
+                            .AddTransient<BenchmarkRunner>());
     }
 
     [RPlotExporter]
     public class UpDateData
     {
+        private readonly WideWorldImportersContext _context;
+
+        public UpDateData(WideWorldImportersContext context)
+        {
+            _context = context;
+        }
+
         [Benchmark]
         public async Task EfCoreUpdateRangeAsync()
         {
-            var context = new WideWorldImportersContext();
-            var people = await context.People.ToListAsync();
+            var people = await _context.People.ToListAsync();
             people.ForEach(i => i.LogonName = "Test");
-            context.People.UpdateRange(people);
-            await context.SaveChangesAsync();
+            _context.People.UpdateRange(people);
+            await _context.SaveChangesAsync();
         }
 
         [Benchmark]
         public async Task EfCoreExecuteUpdateAsync()
         {
-            var context = new WideWorldImportersContext();
-            await context.People.ExecuteUpdateAsync(p => p.SetProperty(pr => pr.LogonName, "Test"));
-            await context.SaveChangesAsync();
+            await _context.People.ExecuteUpdateAsync(p => p.SetProperty(pr => pr.LogonName, "Test"));
+            await _context.SaveChangesAsync();
         }
 
         [Benchmark]
         public async Task EfCoreBatchUpdateAsync()
         {
-            var context = new WideWorldImportersContext();
-            await context.Set<Person>()
+            await _context.Set<Person>()
                 .BatchUpdateAsync(new Person()
                 {
                     LogonName = "Test"
@@ -58,8 +69,7 @@ namespace DataUpdateMethods
         [Benchmark]
         public void EfCoreBatchUpdate()
         {
-            var context = new WideWorldImportersContext();
-            context.Set<Person>()
+            _context.Set<Person>()
                .BatchUpdate(new Person()
                {
                    LogonName = "Test"
@@ -72,10 +82,9 @@ namespace DataUpdateMethods
         [Benchmark]
         public async Task EfCoreBulkUpdateAsync()
         {
-            var context = new WideWorldImportersContext();
-            var people = context.People.ToList();
+            var people = _context.People.ToList();
             people.ForEach(p => p.LogonName = "Test");
-            await context.BulkUpdateAsync(people);
+            await _context.BulkUpdateAsync(people);
         }
     }
 }

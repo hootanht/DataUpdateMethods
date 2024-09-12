@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataUpdateMethods.Models;
 
+/// <summary>
+/// Represents a line item in a purchase order in the purchasing schema.
+/// </summary>
 [Table("PurchaseOrderLines", Schema = "Purchasing")]
 [Index("PackageTypeId", Name = "FK_Purchasing_PurchaseOrderLines_PackageTypeID")]
 [Index("PurchaseOrderId", Name = "FK_Purchasing_PurchaseOrderLines_PurchaseOrderID")]

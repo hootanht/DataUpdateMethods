@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataUpdateMethods.Models;
 
+/// <summary>
+/// Represents a delivery method in the application schema.
+/// </summary>
 [Table("DeliveryMethods", Schema = "Application")]
 [Index("DeliveryMethodName", Name = "UQ_Application_DeliveryMethods_DeliveryMethodName", IsUnique = true)]
 public partial class DeliveryMethod

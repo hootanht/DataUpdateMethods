@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataUpdateMethods.Models;
 
+/// <summary>
+/// Represents a stock group in the warehouse schema.
+/// </summary>
 [Table("StockGroups", Schema = "Warehouse")]
 [Index("StockGroupName", Name = "UQ_Warehouse_StockGroups_StockGroupName", IsUnique = true)]
 public partial class StockGroup
