@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataUpdateMethods.Models;
 
+/// <summary>
+/// Represents a payment method in the application schema.
+/// </summary>
 [Table("PaymentMethods", Schema = "Application")]
 [Index("PaymentMethodName", Name = "UQ_Application_PaymentMethods_PaymentMethodName", IsUnique = true)]
 public partial class PaymentMethod

@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataUpdateMethods.Models;
 
+/// <summary>
+/// Represents a buying group in the sales schema.
+/// </summary>
 [Table("BuyingGroups", Schema = "Sales")]
 [Index("BuyingGroupName", Name = "UQ_Sales_BuyingGroups_BuyingGroupName", IsUnique = true)]
 public partial class BuyingGroup

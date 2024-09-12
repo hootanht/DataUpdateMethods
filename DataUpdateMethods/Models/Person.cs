@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataUpdateMethods.Models;
 
+/// <summary>
+/// Represents a person in the application schema.
+/// </summary>
 [Table("People", Schema = "Application")]
 [Index("FullName", Name = "IX_Application_People_FullName")]
 [Index("IsEmployee", Name = "IX_Application_People_IsEmployee")]

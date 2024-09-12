@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataUpdateMethods.Models;
 
+/// <summary>
+/// Represents a customer category in the sales schema.
+/// </summary>
 [Table("CustomerCategories", Schema = "Sales")]
 [Index("CustomerCategoryName", Name = "UQ_Sales_CustomerCategories_CustomerCategoryName", IsUnique = true)]
 public partial class CustomerCategory

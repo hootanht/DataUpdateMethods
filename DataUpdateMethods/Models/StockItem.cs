@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataUpdateMethods.Models;
 
+/// <summary>
+/// Represents a stock item in the warehouse schema.
+/// </summary>
 [Table("StockItems", Schema = "Warehouse")]
 [Index("ColorId", Name = "FK_Warehouse_StockItems_ColorID")]
 [Index("OuterPackageId", Name = "FK_Warehouse_StockItems_OuterPackageID")]

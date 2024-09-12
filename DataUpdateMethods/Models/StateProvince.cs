@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataUpdateMethods.Models;
 
+/// <summary>
+/// Represents a state or province in the application schema.
+/// </summary>
 [Table("StateProvinces", Schema = "Application")]
 [Index("CountryId", Name = "FK_Application_StateProvinces_CountryID")]
 [Index("SalesTerritory", Name = "IX_Application_StateProvinces_SalesTerritory")]

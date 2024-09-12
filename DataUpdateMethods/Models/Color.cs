@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataUpdateMethods.Models;
 
+/// <summary>
+/// Represents a color in the warehouse schema.
+/// </summary>
 [Table("Colors", Schema = "Warehouse")]
 [Index("ColorName", Name = "UQ_Warehouse_Colors_ColorName", IsUnique = true)]
 public partial class Color

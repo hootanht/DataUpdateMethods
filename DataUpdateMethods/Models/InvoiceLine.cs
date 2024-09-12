@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataUpdateMethods.Models;
 
+/// <summary>
+/// Represents a line item in an invoice in the sales schema.
+/// </summary>
 [Table("InvoiceLines", Schema = "Sales")]
 [Index("InvoiceId", Name = "FK_Sales_InvoiceLines_InvoiceID")]
 [Index("PackageTypeId", Name = "FK_Sales_InvoiceLines_PackageTypeID")]

@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataUpdateMethods.Models;
 
+/// <summary>
+/// Represents a customer transaction in the sales schema.
+/// </summary>
 [Table("CustomerTransactions", Schema = "Sales")]
 [Index("TransactionDate", "CustomerId", Name = "FK_Sales_CustomerTransactions_CustomerID")]
 [Index("TransactionDate", "InvoiceId", Name = "FK_Sales_CustomerTransactions_InvoiceID")]

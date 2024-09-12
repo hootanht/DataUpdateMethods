@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataUpdateMethods.Models;
 
+/// <summary>
+/// Represents a country in the application schema.
+/// </summary>
 [Table("Countries", Schema = "Application")]
 [Index("CountryName", Name = "UQ_Application_Countries_CountryName", IsUnique = true)]
 [Index("FormalName", Name = "UQ_Application_Countries_FormalName", IsUnique = true)]

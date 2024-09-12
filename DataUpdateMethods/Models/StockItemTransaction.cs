@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataUpdateMethods.Models;
 
+/// <summary>
+/// Represents a stock item transaction in the warehouse schema.
+/// </summary>
 [Table("StockItemTransactions", Schema = "Warehouse")]
 [Index("CustomerId", Name = "FK_Warehouse_StockItemTransactions_CustomerID")]
 [Index("InvoiceId", Name = "FK_Warehouse_StockItemTransactions_InvoiceID")]

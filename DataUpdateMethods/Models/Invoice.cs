@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataUpdateMethods.Models;
 
+/// <summary>
+/// Represents an invoice in the sales schema.
+/// </summary>
 [Table("Invoices", Schema = "Sales")]
 [Index("AccountsPersonId", Name = "FK_Sales_Invoices_AccountsPersonID")]
 [Index("BillToCustomerId", Name = "FK_Sales_Invoices_BillToCustomerID")]

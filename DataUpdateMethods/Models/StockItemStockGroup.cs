@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataUpdateMethods.Models;
 
+/// <summary>
+/// Represents the association between a stock item and a stock group in the warehouse schema.
+/// </summary>
 [Table("StockItemStockGroups", Schema = "Warehouse")]
 [Index("StockGroupId", "StockItemId", Name = "UQ_StockItemStockGroups_StockGroupID_Lookup", IsUnique = true)]
 [Index("StockItemId", "StockGroupId", Name = "UQ_StockItemStockGroups_StockItemID_Lookup", IsUnique = true)]
