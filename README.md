@@ -74,3 +74,15 @@ These metrics provide insights into the performance characteristics of each meth
 ## Conclusion
 
 In conclusion, this code provides an extensive set of benchmarks for diverse approaches to data updating within a database using EF Core. The benchmarks are invaluable for selecting the most efficient method based on specific use cases and requirements. Furthermore, the code underscores the advantages of employing specialized libraries like EFCore.BulkExtensions for optimized bulk operations, emphasizing the nuanced considerations involved in choosing the appropriate strategy for data updates in EF Core applications.
+
+## Continuous Integration (CI) Setup
+
+This project uses GitHub Actions for Continuous Integration (CI). The CI workflow is defined in the `.github/workflows/ci.yml` file.
+
+### CI Workflow Steps
+
+1. **Trigger**: The workflow is triggered on push events to the default branch.
+2. **Setup .NET**: The workflow sets up the .NET environment.
+3. **Restore Dependencies**: The workflow restores the project dependencies.
+4. **Build**: The workflow builds the project.
+5. **Run Tests**: The workflow runs the tests to ensure the code is working as expected.
