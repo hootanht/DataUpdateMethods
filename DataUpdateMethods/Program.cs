@@ -23,8 +23,7 @@ namespace DataUpdateMethods
             Host.CreateDefaultBuilder(args)
                 .ConfigureServices((_, services) =>
                     services.AddDbContext<WideWorldImportersContext>()
-                            .AddTransient<UpDateData>()
-                            .AddTransient<BenchmarkRunner>());
+                            .AddTransient<UpDateData>());
     }
 
     [RPlotExporter]
